@@ -44,7 +44,7 @@ int main() {
 	printf_s("\n");
 
 	//Affiche position maximum
-	printf_s("Est la position du maximum est : %d\n", maximum);
+	printf_s("Et la position du maximum est : %d\n", maximum);
 
 	free(adr_deb);
 }

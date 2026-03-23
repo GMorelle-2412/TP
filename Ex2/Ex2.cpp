@@ -19,27 +19,33 @@ int main() {
 		scanf_s("%d", &adr_deb[p]); 
 	}
 
-	//trie des valeurs
-	int sauve = 0;
+	//position
+	int sauve_pos = 0;
+	for (int i = 1; i < 6; i++) {
+		if (adr_deb[i] > adr_deb[sauve_pos]) {
+			sauve_pos = i;
+		}
+	}
 
+	//trie des valeurs 
+	int sauve = 0;
 	for (int t = 0; t < 6; t++) {
-		for (int more = 0; more < 6-1; more++) {
+		for (int more = 0; more < 6 - 1; more++) {
 			if (adr_deb[more] > adr_deb[more + 1]) {
 				sauve = adr_deb[more];
 				adr_deb[more] = adr_deb[more + 1];
-				adr_deb[more + 1] = sauve;	
-			}	
-			
+				adr_deb[more + 1] = sauve;
+			}
 		}
-		
 	}
-
+	
 	// Maximum
 	int* maximum = &adr_deb[5];
 
 	printf("\nMaximum : %d\n", *maximum);
 	printf("Adresse : %p\n", &adr_deb[5]);
-	printf("Position : \n");
+	sauve_pos++;
+	printf("Position : %d\n", sauve_pos);
 
 
 	free(adr_deb);
